@@ -20,7 +20,7 @@ page = st.sidebar.radio("Choose Type", ["GENERAL CHATBOT", "DOCUMENT CHATBOT"])
 with open('config.yaml') as config_file:
     config = yaml.safe_load(config_file)
 
-os.environ["GOOGLE_API_KEY"] = "GOOGLE_API_KEY"# Add you Gemini API here
+os.environ["GOOGLE_API_KEY"] = config['GOOGLE_API_KEY']  # Your Gemini api key in config file
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.0-flash",         # your desired Gemini Model
     convert_system_message_to_human=True
